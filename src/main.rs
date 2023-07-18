@@ -35,3 +35,75 @@ This process continues until the entire vector is sorted in lexicographic order.
         }
     }
 }
+
+/*
+In the main function, several test cases are defined
+using different vectors of string literals (test1, test2, ..., test5).
+
+The first test case (test1) is created by using the vec! macro to create a vector of
+string literals, converting them to String using the .to_string() method,
+and collecting them into a Vec<String>.
+
+The contains function is called for each test case, sorting the strings lexicographically.
+
+After sorting, each string in the vector is printed using a
+range-based for loop (for str in &input1 { print!("{} ", str); }), separated by spaces.
+
+A newline is printed after printing the strings of each test case.
+*/
+fn main() {
+    let mut test1 = vec!["hello", "world", "apple", "banana", "cat", "dog"]
+        .iter()
+        .map(|s| s.to_string())
+        .collect::<Vec<String>>();
+
+    contains(&mut test1);
+    for str in &test1 {
+        print!("{} ", str);
+    }
+    println!(); // Output: apple banana cat dog hello world
+
+    let mut test2 = vec!["zebra", "apple", "banana", "cat", "dog"]
+        .iter()
+        .map(|s| s.to_string())
+        .collect::<Vec<String>>();
+
+    contains(&mut test2);
+    for str in &test2 {
+        print!("{} ", str);
+    }
+    println!(); // Output: apple banana cat dog zebra
+
+    let mut test3 = vec!["cat", "dog", "mouse", "elephant", "tiger"]
+        .iter()
+        .map(|s| s.to_string())
+        .collect::<Vec<String>>();
+
+    contains(&mut test3);
+    for str in &test3 {
+        print!("{} ", str);
+    }
+    println!(); // Output: cat dog elephant mouse tiger
+
+    let mut test4 = vec!["abcd", "abc", "abcde", "ab", "abcdef"]
+        .iter()
+        .map(|s| s.to_string())
+        .collect::<Vec<String>>();
+
+    contains(&mut test4);
+    for str in &test4 {
+        print!("{} ", str);
+    }
+    println!(); // Output: ab abc abcd abcde abcdef
+
+    let mut test5 = vec!["aaa", "aa", "aaaaa", "a", "aaaa"]
+        .iter()
+        .map(|s| s.to_string())
+        .collect::<Vec<String>>();
+
+    contains(&mut test5);
+    for str in &test5 {
+        print!("{} ", str);
+    }
+    println!(); // Output: a aa aaa aaaa aaaaa
+}
